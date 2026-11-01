@@ -1,29 +1,21 @@
-Licencia MIT (traducción al español)
-SPDX-License-Identifier: MIT
+MIT License
 
-Copyright (c) 2026 Colaboradores de Advanced Tool Suite
+Copyright (c) 2026 Advanced Tool Suite contributors
 
-Por la presente se concede permiso, de forma gratuita, a cualquier persona que
-obtenga una copia de este software y de los archivos de documentación asociados
-(el «Software»), para utilizar el Software sin restricciones, incluidos, entre
-otros, los derechos de usar, copiar, modificar, fusionar, publicar, distribuir,
-sublicenciar y/o vender copias del Software, y para permitir que las personas a
-las que se les proporcione el Software lo hagan, sujeto a las siguientes
-condiciones:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-El aviso de copyright anterior y este aviso de permiso deberán incluirse en
-todas las copias o partes sustanciales del Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-EL SOFTWARE SE PROPORCIONA «TAL CUAL», SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O
-IMPLÍCITA, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS DE COMERCIABILIDAD, IDONEIDAD
-PARA UN FIN DETERMINADO Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES O TITULARES
-DEL COPYRIGHT SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑO U OTRA
-RESPONSABILIDAD, YA SEA EN UNA ACCIÓN CONTRACTUAL, EXTRACONTRACTUAL O DE OTRO
-TIPO, DERIVADA DEL SOFTWARE O RELACIONADA CON ÉL, SU USO U OTRAS OPERACIONES
-CON EL SOFTWARE.
-
-Esta licencia cubre las contribuciones cuyos titulares autorizan su distribución
-bajo estos términos. No relicencia herramientas de Microsoft, ps2exe, WiX,
-Pester, LiveCharts ni otros componentes de terceros: conservan sus respectivas
-licencias. Antes de una publicación, los mantenedores deben confirmar la
-titularidad y la autorización de las contribuciones heredadas.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

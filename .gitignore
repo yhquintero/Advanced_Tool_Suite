@@ -14,3 +14,16 @@ actividad.log
 *.jsonl
 *.dpapi
 *.clixml
+
+# Secretos y claves privadas: nunca versionar
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+
+# Metadatos locales del sistema
+.DS_Store
+Thumbs.db

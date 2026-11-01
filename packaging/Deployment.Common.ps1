@@ -19,7 +19,7 @@ function Get-ATSDeployment {
 }
 
 function Get-ATSPayloadNames {
-    return @('AdvancedToolSuite.ps1','AdvancedToolSuite.exe','uninstall.ps1','install.ps1','Deployment.Common.ps1','Suite.ico','VERSION.json','README.md','MANUAL.md','BUILD.md','CHANGELOG.md','LICENSE','SHA256.json','manifest.xml')
+    return @('AdvancedToolSuite.ps1','AdvancedToolSuite.exe','uninstall.ps1','install.ps1','Deployment.Common.ps1','Suite.ico','VERSION.json','README.md','MANUAL.md','BUILD.md','CHANGELOG.md','LICENSE','LICENSE.es.md','SECURITY.md','THIRD_PARTY_NOTICES.md','SHA256.json','manifest.xml')
 }
 
 function Assert-ATSPlainDirectory([string]$Path) {

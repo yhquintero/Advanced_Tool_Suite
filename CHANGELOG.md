@@ -2,6 +2,18 @@
 
 Este archivo registra cambios de código. La auditoría de uso se guarda por separado; no contiene contraseñas ni certifica el resultado de herramientas externas.
 
+## Sin publicar — presentación y seguridad del repositorio
+
+- README reorganizado, guía de inicio segura, estado explícito de desarrollo y límites verificables.
+- MIT canónica y traducción española separada, avisos de terceros y conservación de derechos heredados.
+- SECURITY, CONTRIBUTING, CODEOWNERS, plantillas de incidencias/PR y Dependabot para acciones.
+- CI fijado por SHA, sin credenciales persistidas, tiempos máximos y permisos mínimos.
+- Web estática responsive, sin JavaScript/analítica/formularios, CSP por meta y navegación accesible.
+- Workflow Pages manual desde main, con permisos de publicación separados; no se afirma despliegue activo.
+- About propuesto de 255/350 caracteres, topics y Website real provisional. API administrativa devolvió 403: cambios remotos pendientes, no aplicados.
+- Checker local de enlaces, metadatos, web, referencias de acciones y patrones básicos de secretos. No sustituye auditoría.
+- Autoextraíble regenerado con web/políticas y pruebas; documentos legales/de seguridad incorporados a paquetes.
+
 ## 4.0.0 — 2026-11-01 · inicio de desarrollo
 
 **Estado:** primera fase implementada, pendiente de validación Windows. No representa la culminación del roadmap v4 ni una versión certificada para producción.
