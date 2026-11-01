@@ -29,6 +29,16 @@ Para instalar para o seu usuário:
 
 O instalador prepara um novo pacote Portable sem assinatura, valida e instala localmente. Depois, use **Iniciar → Advanced Tool Suite**, não o instalador. Comece com **Ajustes → Solo lectura** (Configurações → Somente leitura) e diagnósticos básicos do sistema e IP.
 
+## Analisador de cobranças
+
+[`Cobros/AnalizadorCobros.html`](../../Cobros/README.md) é um painel de navegador em um único arquivo, separado do painel WPF (interface em espanhol). Ele lê uma planilha de pagamentos (`.xls`, `.xlsx` ou CSV) localmente e sem internet, e mostra:
+
+- quem não pagou em cada mês;
+- quem pagou depois dos primeiros 10 dias úteis, com feriados de Cuba editáveis;
+- tabelas e gráficos dinâmicos dos valores.
+
+O arquivo não sai do computador. Nunca versione planilhas de clientes: o repositório é público.
+
 ## Entenda os limites
 
 O site é documentação, não administração remota nem PWA. A suíte não é antivírus. Somente leitura e senha local não substituem os controles de segurança do Windows. Desfazer é limitado: faça backup antes de alterar. Logs e inventários podem conter dados pessoais ou de rede. Hashes verificam integridade, não a identidade do autor. Plugins não executam scripts arbitrários de terceiros.

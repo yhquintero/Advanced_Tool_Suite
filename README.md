@@ -9,14 +9,14 @@
 **42 herramientas de Windows en un panel local, claro y en español.**
 **Diagnósticos, inventarios, favoritos y plugins declarativos — con permisos por acción.**
 
-📖 **[Manual de usuario](MANUAL.md) · [Guía de primera sesión](site/uso.html) · [Inicio rápido](LEEME-PRIMERO.md) · [Novedades](CHANGELOG.md) · [Web del proyecto — fuentes](site/index.html)**
+📖 **[Manual de usuario](MANUAL.md) · [Guía de primera sesión](site/uso.html) · [Inicio rápido](LEEME-PRIMERO.md) · [Analizador de cobros](Cobros/README.md) · [Novedades](CHANGELOG.md) · [Web del proyecto — fuentes](site/index.html)**
 
 🌐 **Documentación:** Español · [English](docs/readme/README_en.md) · [Português](docs/readme/README_pt-BR.md)
 La interfaz de la aplicación está en español; las traducciones del panel siguen en la hoja de ruta.
 
 **Windows 10/11 x64 · Windows PowerShell 5.1 · .NET Framework 4.8 · MIT**
 
-[Resumen](#resumen) · [Ecosistema](#ecosistema) · [Funciones](#funciones) · [Vista del proyecto](#vista-del-proyecto) · [Requisitos](#requisitos) · [Inicio rápido](#inicio-rápido) · [Permisos](#permisos-y-uso-seguro) · [Documentación](#documentación-y-web) · [Preguntas frecuentes](#preguntas-frecuentes) · [Seguridad](#privacidad-y-registros) · [Licencia](#licencia)
+[Resumen](#resumen) · [Ecosistema](#ecosistema) · [Funciones](#funciones) · [Cobros](#analizador-de-cobros) · [Vista del proyecto](#vista-del-proyecto) · [Requisitos](#requisitos) · [Inicio rápido](#inicio-rápido) · [Permisos](#permisos-y-uso-seguro) · [Documentación](#documentación-y-web) · [Preguntas frecuentes](#preguntas-frecuentes) · [Seguridad](#privacidad-y-registros) · [Licencia](#licencia)
 
 </div>
 
@@ -40,6 +40,7 @@ Advanced Tool Suite organiza diagnósticos y accesos administrativos de Windows 
 | Aplicación NEXUS | Ejecutar diagnósticos y abrir herramientas | Windows, localmente |
 | Web documental | Conocer funciones, requisitos y pasos | Navegador; no administra el equipo |
 | Autoextraíble | Reconstruir las fuentes y recursos sin descargas | Windows PowerShell |
+| Analizador de cobros | Revisar un Excel de pagos: quién no pagó, quién pagó fuera de plazo y gráficos dinámicos | Navegador, sin conexión; el archivo no sale del equipo |
 | Repositorio | Revisar código, pruebas, manual y cambios | GitHub o copia local |
 
 ## Funciones
@@ -55,6 +56,16 @@ Advanced Tool Suite organiza diagnósticos y accesos administrativos de Windows 
 | Distribución | Recetas EXE/MSI y firma opcional; no implica paquetes compilados/firmados |
 
 **Todavía planificado:** i18n ES/EN/PT, gráficas, editor visual de temas, AD, workflows y host aislado de código externo. [Hoja de ruta](docs/ROADMAP-v4.0.0.md).
+
+## Analizador de cobros
+
+[`Cobros/AnalizadorCobros.html`](Cobros/README.md) es un panel de un solo archivo. Se abre con doble clic y lee el Excel de pagos de los contribuyentes (`.xls`, `.xlsx` o CSV) **dentro del navegador**, sin conexión ni instalación. Muestra:
+
+- quién no pagó cada mes;
+- quién pagó después de los primeros **10 días hábiles**, con feriados de Cuba editables;
+- tablas y gráficos dinámicos del Importe ($).
+
+Es independiente del panel WPF y no forma parte de las 42 herramientas. No subas Excel de clientes al repositorio: es público, y `.gitignore` los excluye. [Guía y reglas](Cobros/README.md).
 
 ## Vista del proyecto
 
@@ -167,12 +178,14 @@ En Windows PowerShell 5.1:
 powershell.exe -NoProfile -STA -File .\Tool\AdvancedToolSuite.ps1 -SmokeTest
 ```
 
+`unittest` incluye el Analizador de cobros. Con Node.js 18 o superior también ejecuta `tests/cobros-harness.mjs`; sin Node, esa parte se omite.
+
 La suite Pester define 43 casos y su runner exige 43/43. Eso no significa que hayan pasado en todas las máquinas o revisiones. CI usa permisos mínimos y acciones fijadas por SHA; consulta sus resultados, no solo una insignia. [Validaciones y límites](docs/REVISION-4.0.0.md).
 
 ## Documentación y web
 
 - [Primera ejecución](LEEME-PRIMERO.md) · [Manual](MANUAL.md) · [Construcción](BUILD.md)
-- [Plugins](Plugins/README.md) · [Versiones](CHANGELOG.md) · [Roadmap](docs/ROADMAP-v4.0.0.md)
+- [Plugins](Plugins/README.md) · [Analizador de cobros](Cobros/README.md) · [Versiones](CHANGELOG.md) · [Roadmap](docs/ROADMAP-v4.0.0.md)
 - [Contribuciones](CONTRIBUTING.md) · [Seguridad](SECURITY.md) · [Licencias de terceros](THIRD_PARTY_NOTICES.md)
 - [Web estática y configuración GitHub pendiente](docs/SEGURIDAD-REPOSITORIO.md)
 - [Revisión del rediseño web y mantenimiento del catálogo](docs/REVISION-WEB.md)
