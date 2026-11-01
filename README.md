@@ -124,8 +124,9 @@ La suite Pester define 43 casos y su runner exige 43/43. Eso no significa que ha
 - [Plugins](Plugins/README.md) · [Versiones](CHANGELOG.md) · [Roadmap](docs/ROADMAP-v4.0.0.md)
 - [Contribuciones](CONTRIBUTING.md) · [Seguridad](SECURITY.md) · [Licencias de terceros](THIRD_PARTY_NOTICES.md)
 - [Web estática y configuración GitHub pendiente](docs/SEGURIDAD-REPOSITORIO.md)
+- [Revisión del rediseño web y mantenimiento del catálogo](docs/REVISION-WEB.md)
 
-La web de presentación está en `site/`, sin JavaScript, formularios, cookies, analítica ni recursos remotos. Su publicación en GitHub Pages requiere habilitación y despliegue; no se anuncia como activa sin comprobarlo. El enlace Website del About propuesto apunta al README mientras tanto.
+La web de presentación está en `site/`, con portada, catálogo desplegable de las 42 herramientas en 6 categorías, guía local y página de seguridad. Ofrece temas claro/oscuro según el sistema y no contiene JavaScript, formularios, cookies, analítica ni recursos remotos. Su publicación en GitHub Pages requiere habilitación y despliegue; no se anuncia como activa sin comprobarlo. El enlace Website del About propuesto apunta al README mientras tanto.
 
 ## Licencia
 
