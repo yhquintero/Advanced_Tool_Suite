@@ -2,6 +2,15 @@
 
 Este archivo registra cambios de código. La auditoría de uso se guarda por separado; no contiene contraseñas ni certifica el resultado de herramientas externas.
 
+## Sin publicar — portada GitHub y recorrido web · 2026-11-01
+
+- README convertido en portada de producto: marca, lema, banner SVG original, navegación, resumen, ecosistema, funciones, permisos, FAQ y documentación.
+- Resúmenes reales de documentación EN/PT-BR; interfaz española y traducciones de aplicación pendientes explícitas.
+- Nueva guía web de primera sesión para usuarios ya instalados y tres recorridos desde la portada HTML.
+- Corregida la instrucción obsoleta sobre instalar desde fuentes; enlaces al diagnóstico de errores y apertura diaria desde Inicio.
+- Sin copiar activos propietarios de NovaGest ni anunciar Pages, vídeos, capturas reales o plataformas que no se han verificado.
+- Pruebas de navegación README, SVG pasivo, documentación traducida y guía de uso. Autoextraíble regenerado.
+
 ## Sin publicar — escritura del Registro durante la instalación · 2026-11-01
 
 - Corregido `Cannot write to the registry key`: no se llama a `SetValue` sobre los handles de lectura devueltos por `Get-Item`.
