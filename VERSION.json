@@ -1,0 +1,121 @@
+{
+  "version": "4.0.0",
+  "date": "2026-11-01",
+  "runtime": "Windows PowerShell 5.1 / .NET Framework 4.8 / Windows 10-11 x64",
+  "validation": "Pruebas estaticas locales; validacion Windows y compilacion EXE/MSI pendientes.",
+  "features": [
+    {
+      "id": 1,
+      "name": "Animaciones de entrada",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 2,
+      "name": "Iconos SVG por herramienta",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 3,
+      "name": "Cuatro temas seleccionables",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 4,
+      "name": "Modo compacto",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 5,
+      "name": "Gradiente ambiental animado",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 6,
+      "name": "Busqueda en tiempo real",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 7,
+      "name": "Favoritos persistentes",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 8,
+      "name": "Historial exportable",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 9,
+      "name": "Programacion de informes desde GUI",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 10,
+      "name": "Verificaciones previas",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 11,
+      "name": "Estado CPU RAM y disco",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 12,
+      "name": "Deshacer ajustes de registro",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 13,
+      "name": "Auditoria local y C:\\REPORTE",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 14,
+      "name": "Modo solo lectura",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 15,
+      "name": "Clave local para acciones criticas",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 16,
+      "name": "Puntos de restauracion",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 17,
+      "name": "Receta EXE con ps2exe",
+      "status": "receta sin compilar"
+    },
+    {
+      "id": 18,
+      "name": "Receta MSI con WiX e icono",
+      "status": "receta sin compilar"
+    },
+    {
+      "id": 19,
+      "name": "Portable de un solo PS1",
+      "status": "codigo implementado; validacion Windows pendiente"
+    },
+    {
+      "id": 20,
+      "name": "Menu contextual del Explorador",
+      "status": "codigo implementado; validacion Windows pendiente"
+    }
+  ],
+  "distribution": {
+    "manifest": "packaging/manifest.xml",
+    "authenticode": "opcional con certificado propio; no firmado aqui",
+    "pester": "43 casos, pendiente de ejecucion Windows",
+    "installer": "por usuario con recibo y SHA256; pendiente de prueba Windows",
+    "roadmap": "docs/ROADMAP-v4.0.0.md"
+  },
+  "stage": "inicio de desarrollo; no validado para produccion",
+  "v4": {
+    "plugins": "declarativos v1, solo diagnosticos permitidos; no ejecuta codigo externo",
+    "bootstrap": "Releases/AdvancedToolSuite-v4.0.0-setup.ps1",
+    "remaining": "i18n, graficas, editor visual de temas, AD y workflows siguen pendientes"
+  }
+}

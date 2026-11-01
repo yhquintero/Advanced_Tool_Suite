@@ -1,0 +1,16 @@
+# Archivos locales y resultados de pruebas
+__pycache__/
+*.py[cod]
+.venv/
+
+# No versionar informes con datos del equipo
+Reportes/
+actividad.log
+
+# Distribuciones, auditoria y datos locales sensibles
+/artifacts/
+*.log
+*.log.*
+*.jsonl
+*.dpapi
+*.clixml
