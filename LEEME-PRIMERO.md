@@ -62,3 +62,14 @@ El extractor comprueba SHA256 del archivo comprimido y de cada archivo, valida r
 Los hashes embebidos detectan incoherencias, **no acreditan la identidad del autor**: alguien que reemplace el `.ps1` entero puede recalcularlos. Confía en el origen del fichero y, para distribuir de forma estable, firma el extractor con Authenticode y verifica su firmante. Este fichero no está firmado aquí.
 
 Las verificaciones estáticas del contenido no sustituyen una extracción e interacción reales en Windows. Para instalar de forma gestionada o compilar EXE/MSI, sigue `BUILD.md` después de extraer.
+
+## Instalar con acceso en Inicio (opcional)
+
+Desde la raíz del proyecto extraído o clonado, en Windows 10/11 x64:
+
+```powershell
+.\install.ps1 -WhatIf
+.\install.ps1
+```
+
+El instalador prepara un Portable nuevo sin firma y lo valida antes de instalar por usuario. La simulación no construye ni escribe. No requiere Python, ps2exe, WiX o administrador. Para exigir firma, construye y firma un paquete primero; usa `-SourceDirectory` con ese paquete y `-RequireSignature`. Ver `BUILD.md`.

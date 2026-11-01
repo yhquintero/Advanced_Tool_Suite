@@ -38,6 +38,26 @@ powershell.exe -NoProfile -STA -File .\Tool\AdvancedToolSuite.ps1 -SmokeTest
 
 Pester debe devolver **43/43 casos aprobados**, sin omitidos, y genera `artifacts\tests\ATS-Pester.xml`. Sus pruebas son unitarias/de contratos, no 43 ensayos de cambios administrativos sobre Windows. El smoke test carga controles WPF sin mostrarlos ni ejecutar herramientas.
 
+## Instalación directa desde el repositorio
+
+En Windows 10/11 x64, desde la raíz:
+
+```powershell
+.\install.ps1 -WhatIf  # no construye ni instala
+.\install.ps1          # prepara Portable nuevo, valida e instala por usuario
+```
+
+La preparación usa Windows PowerShell 5.1, sin descargas, en `artifacts\<versión>\Portable-install-<GUID>`. Conserva esa salida para inspección; no sobrescribe paquetes anteriores. Confirma que confías en las fuentes antes de ejecutarlas. No se genera una firma ni se eluden políticas.
+
+Para resolver el error antiguo «Selecciona una distribución completa…» sin actualizar aún el instalador:
+
+```powershell
+powershell.exe -NoProfile -File .\packaging\Build-Release.ps1 -Format Portable
+powershell.exe -NoProfile -File .\install.ps1 -SourceDirectory .\artifacts\4.0.0\Portable
+```
+
+Si la salida ya existe y no está vacía, consérvala con otro nombre antes de reconstruir. No crees un `SHA256.json` manual para omitir la validación.
+
 ## 2. Construcción sin firma
 
 Desde la raíz del repositorio:
@@ -49,6 +69,8 @@ Desde la raíz del repositorio:
 ```
 
 Las salidas están en `artifacts\4.0.0\Portable`, `Exe` o `Msi`. La carpeta del formato debe estar **vacía** antes de construir. Archiva o retira conscientemente una salida anterior; el constructor no la borra para evitar pérdida de archivos o mezcla de binarios obsoletos. Una compilación fallida puede dejar una salida parcial: no la distribuyas.
+
+Puedes elegir otra carpeta nueva o vacía con `-OutputDirectory "ruta"`; es lo que usa la preparación automática.
 
 El portable sigue siendo un único `AdvancedToolSuite.ps1` para ejecutar. Los documentos y scripts adicionales son opcionales para la instalación gestionada.
 

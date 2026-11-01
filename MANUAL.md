@@ -20,7 +20,9 @@ En una distribución portable basta con su `AdvancedToolSuite.ps1`; el XAML y lo
 
 ### Instalación por usuario
 
-Necesitas una distribución Portable/Exe construida según `BUILD.md`, con `SHA256.json`, scripts de instalación y helper. No basta con ejecutar `install.ps1` desde el repositorio sin construir el paquete.
+Desde la raíz del repositorio, `install.ps1` reconoce las fuentes y prepara automáticamente un paquete Portable sin firma en una carpeta nueva `artifacts\<versión>\Portable-install-<GUID>`. Después valida sus hashes e instala. No descarga dependencias ni reutiliza distribuciones antiguas. `-WhatIf` no construye ni instala. Si usas PowerShell 7, la preparación se delega a Windows PowerShell 5.1.
+
+También admite una distribución Portable/Exe ya construida según `BUILD.md`, con `SHA256.json`, scripts y helper: `./install.ps1 -SourceDirectory "ruta-al-paquete"`. Un paquete incompleto o alterado se rechaza; no se regenera su manifiesto. Con `-RequireSignature`, prepara y firma una distribución previamente: no se generan fuentes sin firma automáticamente.
 
 ```powershell
 .\install.ps1 -WhatIf
