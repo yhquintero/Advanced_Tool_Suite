@@ -77,3 +77,30 @@ Abre `/`, `/guia.html` y `/seguridad.html`. En un equipo compartido, limita el a
 5. Si se necesita un catálogo con búsqueda, valorar primero accesibilidad, privacidad y CSP antes de incorporar JavaScript. No se ha añadido un buscador simulado.
 
 Las cabeceras HTTP, TLS, registros del hosting y protecciones GitHub no se configuran mediante este HTML. No se promete WAF, seguridad absoluta, autenticidad por hash o recuperación universal de cambios.
+
+## Ampliación: portada GitHub y primera sesión (2026-11-01)
+
+Revisión de los 20 puntos de esta entrega:
+
+1. Logo NEXUS local visible en GitHub.
+2. Lema propio «Diagnostica. Organiza. Decide.».
+3. Propuesta de valor fiel a Windows/WPF.
+4. Banner SVG original, no captura simulada.
+5. Alternativa textual en Markdown y SVG.
+6. Navegación con anclas a encabezados reales.
+7. Resumen separado de las advertencias de desarrollo.
+8. Ecosistema web/aplicación/fuentes diferenciado.
+9. Funciones y seis categorías sin inventar módulos.
+10. Requisitos Windows visibles.
+11. Autoextraíble documentado con verificación previa.
+12. Ejecución portable diferenciada de instalación.
+13. Instalación desde fuentes actualizada tras correcciones previas.
+14. Apertura diaria desde Inicio, sin reinstalar.
+15. Guía local `uso.html` con primera sesión de solo lectura.
+16. Permisos/UAC en lugar de roles empresariales inexistentes.
+17. FAQ nativa sin JavaScript.
+18. Resúmenes EN/PT-BR reales, sin atribuir idiomas a la UI.
+19. Publicación Pages pendiente explícita; consulta API devolvió 404.
+20. Historial, pruebas y autoextraíble actualizados.
+
+La nueva guía hereda CSP, navegación, foco, temas y reglas adaptables existentes. El banner es un recurso local sin scripts ni referencias remotas. La revisión de navegador de la entrega anterior no se atribuye a esta ampliación: estas modificaciones se validan con contratos estáticos y preview HTTP; quedan pendientes comprobaciones visuales/interactivas específicas y Pages real.

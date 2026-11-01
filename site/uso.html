@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Primera sesión con NEXUS instalado: abrir desde Inicio, activar solo lectura, ejecutar diagnósticos y revisar resultados.">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#10132a">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'none'; connect-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Primera sesión de uso · NEXUS</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="./" aria-label="NEXUS, inicio"><img src="assets/logo.svg" width="38" height="38" alt=""><span>NEXUS<small>ADVANCED TOOL SUITE</small></span></a>
+    <nav aria-label="Navegación principal"><a href="./#modulos">Funciones</a><a href="./#catalogo">Herramientas</a><a href="./#empezar">Cómo empezar</a><a href="./#preguntas">Preguntas</a></nav>
+    <a class="button button-small" href="guia.html">Guía de inicio <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<main id="contenido" class="wrap">
+<div class="article-hero"><p class="breadcrumb"><a href="./">Inicio</a> / Primera sesión</p><p class="eyebrow">YA INSTALADO · AHORA SÍ, A TRABAJAR</p><h1>Abre. Explora.<br><span>Decide con contexto.</span></h1><p class="lead">Una ruta corta para usar NEXUS sin confundir instalar con ejecutar ni un diagnóstico con una reparación automática.</p></div>
+<div class="article-layout"><nav class="article-menu" aria-label="En esta guía"><a href="#abrir">01 · Abrir</a><a href="#configurar">02 · Configurar</a><a href="#diagnosticar">03 · Diagnosticar</a><a href="#revisar">04 · Revisar</a><a href="#cambiar">05 · Cambiar con cuidado</a></nav><div class="article-content">
+<section id="abrir"><h2>01. El instalador ya terminó su trabajo</h2><p>Si viste «Instalado en…», abre <strong>Inicio → Advanced Tool Suite</strong>. No necesitas volver a ejecutar install.ps1 para usar la aplicación. No eleves todo el panel.</p><p>Alternativa desde consola, usando la copia instalada:</p><pre><code>powershell.exe -NoProfile -STA -File "$env:LOCALAPPDATA\Programs\AdvancedToolSuite\AdvancedToolSuite.ps1"</code></pre><p>Si aún no instalaste, puedes abrir <code>Tool\Iniciar.cmd</code> desde las fuentes. <a href="guia.html">Ver extracción y primera ejecución →</a></p></section>
+<section id="configurar"><h2>02. Primero, solo lectura</h2><ol><li>Abre <strong>Ajustes</strong> y activa <strong>Solo lectura</strong>.</li><li>Escoge tema y modo compacto según tu pantalla.</li><li>Usa el buscador y marca favoritos con la estrella: marcar no ejecuta.</li></ol><p>No necesitas plugins, tareas programadas o una clave local para empezar. Solo lectura limita el despacho de acciones desde la suite, no crea una frontera de seguridad del sistema.</p></section>
+<section id="diagnosticar"><h2>03. Una herramienta cada vez</h2><ol><li><strong>Información del sistema:</strong> conoce la configuración del equipo.</li><li><strong>Memoria:</strong> revisa consumo; no promete liberar RAM.</li><li><strong>Configuración IP:</strong> consulta tu red.</li><li><strong>Ping:</strong> prueba conectividad; genera tráfico cuando lo solicitas.</li><li><strong>Inventario:</strong> guarda una referencia antes de cambiar.</li></ol><p>Las operaciones largas pueden abrir consolas separadas. Lee el resultado antes de cerrarlas. Cerrar el panel no cancela necesariamente trabajos lanzados.</p></section>
+<section id="revisar"><h2>04. Comprueba y conserva el contexto</h2><p>Revisa el historial. <code>DISPATCHED</code> significa enviado, no terminado. Los inventarios manuales se guardan en <code>Documentos\AdvancedToolSuite\Reportes</code>; los registros locales están en <code>%LOCALAPPDATA%\AdvancedToolSuite</code>.</p><div class="callout"><p><strong>Antes de compartir:</strong> anonimiza usuario, red, números de serie y cualquier dato personal. Los registros son editables, no auditoría inmutable.</p></div></section>
+<section id="cambiar"><h2>05. Cambia solo lo que necesitas</h2><p>Guarda tu trabajo, conserva una copia de seguridad y prueba operaciones delicadas en una VM. Desactiva solo lectura únicamente para una tarea comprendida. Revisa las confirmaciones y UAC por acción.</p><p>No ensayes apagado, conversión de discos, firewall o restablecimiento de red en tu equipo principal. Deshacer no revierte todo y los puntos de restauración no sustituyen una copia de datos.</p><div class="actions"><a class="button primary" href="seguridad.html">Permisos y límites →</a><a class="text-link" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/MANUAL.md">Manual completo ↗</a></div></section>
+</div></div>
+<footer class="wrap footer"><div><a class="brand" href="./"><img src="assets/logo.svg" width="32" height="32" alt=""><span>NEXUS<small>ADVANCED TOOL SUITE</small></span></a><p>Herramientas locales. Decisiones conscientes.</p></div><div class="footer-links"><a href="https://github.com/yhquintero/Advanced_Tool_Suite">Código fuente ↗</a><a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/CHANGELOG.md">Novedades ↗</a><a href="seguridad.html">Seguridad</a><a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/LICENSE">Licencia MIT ↗</a></div><p class="footer-note">Proyecto en desarrollo. Sin JavaScript, formularios, analítica ni cookies propias. El hosting puede registrar accesos. No se garantiza seguridad absoluta.</p></footer>
+</body>
+</html>
