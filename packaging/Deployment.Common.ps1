@@ -3,6 +3,23 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+function Set-ATSUserRegistryValue {
+    param(
+        [Parameter(Mandatory)][string]$Path,
+        [Parameter(Mandatory)][AllowEmptyString()][string]$Name,
+        [Parameter(Mandatory)][AllowEmptyString()][AllowEmptyCollection()]$Value,
+        [Parameter(Mandatory)][Microsoft.Win32.RegistryValueKind]$Kind
+    )
+    # Get-Item devuelve un RegistryKey de lectura; SetValue necesita apertura explicita writable.
+    # No elevar, cambiar ACL ni aceptar otro hive. La clave debe existir ya.
+    $match = [regex]::Match($Path, '^HKCU:\\(.+)$', [Text.RegularExpressions.RegexOptions]::IgnoreCase)
+    if (-not $match.Success) { throw 'Solo se permite una subclave HKCU en la escritura de instalacion.' }
+    $writableKey = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey($match.Groups[1].Value, $true)
+    if ($null -eq $writableKey) { throw "No se puede abrir la clave de usuario para escritura: $Path" }
+    try { $writableKey.SetValue($Name, $Value, $Kind) }
+    finally { $writableKey.Dispose() }
+}
+
 function Get-ATSDeployment {
     if ($env:OS -ne 'Windows_NT' -or -not [Environment]::Is64BitProcess) { throw 'Usa Windows PowerShell de 64 bits en Windows 10/11.' }
     $windows = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion'

@@ -33,6 +33,12 @@ jobs:
       - name: Sintaxis y catalogo (Windows PowerShell 5.1)
         shell: powershell
         run: .\tests\Validar-PowerShell.ps1
+      - name: Registro de instalacion en HKCU temporal (Windows PowerShell 5.1)
+        shell: powershell
+        run: .\tests\Probar-Registro-Instalacion.ps1
+      - name: Registro de instalacion en HKCU temporal (PowerShell 7)
+        shell: pwsh
+        run: .\tests\Probar-Registro-Instalacion.ps1
       - name: Contratos sin cambios de sistema
         shell: powershell
         run: .\tests\Probar-Contratos.ps1
