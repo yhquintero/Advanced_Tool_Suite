@@ -2,6 +2,16 @@
 
 Este archivo registra cambios de código. La auditoría de uso se guarda por separado; no contiene contraseñas ni certifica el resultado de herramientas externas.
 
+## Sin publicar — rediseño de la web · 2026-11-01
+
+- Nueva identidad visual NEXUS: hero con ilustración CSS original y explícitamente conceptual, colores índigo/menta/lavanda, tarjetas y botones redondeados.
+- Portada con funciones, ecosistema, catálogo desplegable de 42 herramientas en 6 categorías reales, inicio, estado v4, preguntas, documentación y pie legal.
+- Guía local de primera ejecución y página de permisos, privacidad, plugins, recuperación y límites de seguridad.
+- Temas claro/oscuro del sistema, navegación por teclado, movimiento reducido, impresión y adaptación de escritorio a móvil.
+- Catálogo generado desde los metadatos PS1 sin ejecutar PowerShell; comprobación de sincronización en CI y antes de publicar Pages.
+- Pruebas de IDs, nombres, descripciones, permisos, anclas entre páginas y enlaces al código; registro de comprobaciones de navegador en `docs/REVISION-WEB.md`.
+- Diseño original inspirado únicamente en la organización de NovaGest, sin copiar código ni recursos propietarios. No se simula una aplicación Windows ejecutable en el navegador.
+
 ## Sin publicar — presentación y seguridad del repositorio
 
 - README reorganizado, guía de inicio segura, estado explícito de desarrollo y límites verificables.
