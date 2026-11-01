@@ -2,6 +2,13 @@
 
 Este archivo registra cambios de código. La auditoría de uso se guarda por separado; no contiene contraseñas ni certifica el resultado de herramientas externas.
 
+## Sin publicar — escritura del Registro durante la instalación · 2026-11-01
+
+- Corregido `Cannot write to the registry key`: no se llama a `SetValue` sobre los handles de lectura devueltos por `Get-Item`.
+- Escritor HKCU con apertura explícita de la subclave existente para escritura y cierre en `finally`, sin elevar permisos ni modificar ACL. Lo comparten la instalación y la restauración del Registro.
+- Conservados tipos String/DWord y tipos originales durante rollback, incluidos valores predeterminados/vacíos y ExpandString sin expandir variables de entorno. Handles de lectura cerrados antes de modificar/restaurar las claves.
+- Regresión nativa sobre una clave HKCU temporal en CI, con Windows PowerShell 5.1 y PowerShell 7. No sustituye una instalación completa en Windows 10/11.
+
 ## Sin publicar — instalación desde fuentes · 2026-11-01
 
 - Corregido el error al ejecutar `install.ps1` en la raíz del repositorio: reconoce las fuentes y prepara un Portable nuevo antes de la validación e instalación habituales.

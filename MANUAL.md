@@ -31,6 +31,8 @@ También admite una distribución Portable/Exe ya construida según `BUILD.md`, 
 
 Instala en `%LOCALAPPDATA%\Programs\AdvancedToolSuite`, agrega acceso a Inicio y registro en Aplicaciones instaladas. No requiere administrador ni cambia políticas. Una distribución con firmas de confianza puede verificarse con `-RequireSignature`. Primero verifica el origen del instalador por un canal confiable: no puede autenticarse a sí mismo contra un atacante que reemplace todo el paquete.
 
+Si aparece `Cannot write to the registry key` durante la instalación, consulta la [causa, corrección y reintento seguro](docs/SOLUCION-INSTALACION-REGISTRO.md). No lo resuelvas elevando el panel o borrando claves manualmente.
+
 ### MSI
 
 Usa el MSI cuando esté construido y validado en Windows; no invoques los scripts de instalación para ese formato. No mezcles métodos de instalación en la misma ubicación. Consulta `BUILD.md`.

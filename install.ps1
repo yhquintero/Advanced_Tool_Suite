@@ -41,7 +41,12 @@ if (Test-Path -LiteralPath $config.Root) {
     $known = @($previousReceipt.Files.Name) + $config.Receipt
     if (@(Get-ChildItem -LiteralPath $config.Root -Force | Where-Object Name -NotIn $known).Count) { throw 'Hay archivos no gestionados en el destino. Conservalos fuera antes de actualizar.' }
 }
-if ((Test-Path $config.UninstallKey) -and ((Get-Item $config.UninstallKey).GetValue('ATSProductId') -ne $config.ProductId)) { throw 'La entrada de desinstalacion pertenece a otro producto.' }
+if (Test-Path $config.UninstallKey) {
+    $ownerKey = Get-Item $config.UninstallKey
+    try {
+        if ($ownerKey.GetValue('ATSProductId') -ne $config.ProductId) { throw 'La entrada de desinstalacion pertenece a otro producto.' }
+    } finally { $ownerKey.Dispose() }
+}
 if ((Test-Path -LiteralPath $config.Shortcut) -and $null -eq $previousReceipt) { throw 'Ya existe un acceso directo sin una instalacion ATS reconocida.' }
 Assert-ATSPlainDirectory (Split-Path $config.Shortcut -Parent)
 if ($null -ne $previousReceipt -and (Test-Path -LiteralPath $config.Shortcut)) {
@@ -56,7 +61,9 @@ $shortcutBackup = $null; $oldRegistry = @{}; $registryExisted = Test-Path $confi
 $swapped = $false; $newInstalled = $false
 if ($registryExisted) {
     $key = Get-Item $config.UninstallKey
-    foreach ($name in $key.GetValueNames()) { $oldRegistry[$name] = @{Value=$key.GetValue($name); Kind=$key.GetValueKind($name)} }
+    try {
+        foreach ($name in $key.GetValueNames()) { $oldRegistry[$name] = @{Value=$key.GetValue($name,$null,[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames); Kind=$key.GetValueKind($name)} }
+    } finally { $key.Dispose() }
 }
 try {
     New-Item $stage -ItemType Directory | Out-Null
@@ -70,16 +77,18 @@ try {
     if (Test-Path -LiteralPath $config.Shortcut) { $shortcutBackup = [IO.File]::ReadAllBytes($config.Shortcut) }
     if (Test-Path -LiteralPath $config.Root) { Move-Item -LiteralPath $config.Root -Destination $backup; $swapped = $true }
     Move-Item -LiteralPath $stage -Destination $config.Root; $newInstalled = $true
-    if (-not $registryExisted) { New-Item $config.UninstallKey -Force | Out-Null }
-    $key = Get-Item $config.UninstallKey
+    if (-not $registryExisted) {
+        $createdKey = New-Item $config.UninstallKey -Force
+        $createdKey.Dispose()
+    }
     $uninstall = '"{0}" -NoProfile -File "{1}"' -f "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe",(Join-Path $config.Root 'uninstall.ps1')
     foreach ($pair in @{
         DisplayName='Advanced Tool Suite'; DisplayVersion=$package.Version; Publisher='Advanced Tool Suite contributors'
         InstallLocation=$config.Root; DisplayIcon=(Join-Path $config.Root 'Suite.ico'); UninstallString=$uninstall
         ATSProductId=$config.ProductId
-    }.GetEnumerator()) { $key.SetValue($pair.Key,$pair.Value,[Microsoft.Win32.RegistryValueKind]::String) }
-    $key.SetValue('NoModify',1,[Microsoft.Win32.RegistryValueKind]::DWord)
-    $key.SetValue('NoRepair',1,[Microsoft.Win32.RegistryValueKind]::DWord)
+    }.GetEnumerator()) { Set-ATSUserRegistryValue -Path $config.UninstallKey -Name $pair.Key -Value $pair.Value -Kind String }
+    Set-ATSUserRegistryValue -Path $config.UninstallKey -Name 'NoModify' -Value 1 -Kind DWord
+    Set-ATSUserRegistryValue -Path $config.UninstallKey -Name 'NoRepair' -Value 1 -Kind DWord
     $launch = Get-ATSLaunch $config.Root $package.EntryPoint
     $shell = New-Object -ComObject WScript.Shell
     try {
@@ -97,8 +106,9 @@ try {
     if ($swapped) { Move-Item -LiteralPath $backup -Destination $config.Root }
     if (Test-Path $config.UninstallKey) { Remove-Item $config.UninstallKey -Recurse }
     if ($registryExisted) {
-        New-Item $config.UninstallKey -Force | Out-Null; $key = Get-Item $config.UninstallKey
-        foreach ($name in $oldRegistry.Keys) { $key.SetValue($name,$oldRegistry[$name].Value,$oldRegistry[$name].Kind) }
+        $createdKey = New-Item $config.UninstallKey -Force
+        $createdKey.Dispose()
+        foreach ($name in $oldRegistry.Keys) { Set-ATSUserRegistryValue -Path $config.UninstallKey -Name $name -Value $oldRegistry[$name].Value -Kind $oldRegistry[$name].Kind }
     }
     if ($null -ne $shortcutBackup) { [IO.File]::WriteAllBytes($config.Shortcut,$shortcutBackup) }
     elseif (Test-Path -LiteralPath $config.Shortcut) { Remove-Item -LiteralPath $config.Shortcut }
