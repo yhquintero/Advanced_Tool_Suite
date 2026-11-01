@@ -29,16 +29,6 @@ To install for your user instead:
 
 The installer builds a fresh unsigned Portable package, validates it, and installs locally. After installation, use **Start → Advanced Tool Suite**, not the installer. Begin with **Ajustes → Solo lectura** (Settings → Read-only) and basic system/IP diagnostics.
 
-## Payment analyzer
-
-[`Cobros/AnalizadorCobros.html`](../../Cobros/README.md) is a separate, single-file browser panel (Spanish UI). It reads a payments spreadsheet (`.xls`, `.xlsx` or CSV) locally and offline, and shows:
-
-- who did not pay each month;
-- who paid after the first 10 business days, using editable Cuban holidays;
-- pivot tables and charts of the amounts.
-
-The file never leaves the computer. Never commit client spreadsheets: the repository is public.
-
 ## Know the limits
 
 The website is documentation, not a remote administration service or PWA. The suite is not an antivirus. Read-only mode and the local password are not Windows security boundaries. Undo is limited; back up important files before changes. Logs and inventories may contain personal or network data. Hashes check integrity, not publisher identity. Plugins do not run arbitrary third-party scripts.

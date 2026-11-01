@@ -27,15 +27,3 @@ actividad.log
 # Metadatos locales del sistema
 .DS_Store
 Thumbs.db
-
-# Hojas de cálculo: pueden contener datos de clientes (el repositorio es público).
-# Solo se versionan los ejemplos ficticios del Analizador de cobros.
-*.xls
-*.xlsx
-*.xlsm
-*.xlsb
-*.ods
-*.csv
-!/Cobros/ejemplo/cobros-ejemplo.xls
-!/tests/fixtures/cobros-*.xls
-!/tests/fixtures/cobros-*.xlsx
