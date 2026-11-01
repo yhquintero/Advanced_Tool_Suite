@@ -1,6 +1,6 @@
 ﻿#requires -Version 5.1
 <# .SYNOPSIS
-Instalacion por usuario desde una distribucion Portable/Exe generada por Build-Release.
+Instalacion por usuario desde fuentes (prepara Portable) o una distribucion Portable/Exe.
 #>
 [CmdletBinding(SupportsShouldProcess)]
 param([string]$SourceDirectory = $PSScriptRoot, [switch]$RequireSignature)
@@ -10,6 +10,28 @@ if (-not (Test-Path $common)) { $common = Join-Path $PSScriptRoot 'packaging\Dep
 . $common
 $config = Get-ATSDeployment
 $source = (Resolve-Path -LiteralPath $SourceDirectory).ProviderPath
+# Solo el arbol de fuentes de este instalador puede preparar un paquete automaticamente.
+# Un paquete incompleto/alterado o un SourceDirectory ajeno sigue fallando cerrado.
+$builder = Join-Path $source 'packaging\Build-Release.ps1'
+$isSourceTree = ($source -eq $PSScriptRoot) -and
+    (-not (Test-Path -LiteralPath (Join-Path $source 'SHA256.json'))) -and
+    (Test-Path -LiteralPath $builder -PathType Leaf) -and
+    (Test-Path -LiteralPath (Join-Path $source 'Tool\AdvancedToolSuite.ps1') -PathType Leaf)
+if ($isSourceTree) {
+    if ($RequireSignature) {
+        throw 'Las fuentes no son un paquete firmado. Construye y firma una distribucion; usa -SourceDirectory con ese paquete y -RequireSignature.'
+    }
+    $version = (Get-Content -LiteralPath (Join-Path $source 'VERSION.json') -Raw -Encoding UTF8 | ConvertFrom-Json).version
+    if ($version -notmatch '^\d+\.\d+\.\d+$') { throw 'Version de fuentes no valida.' }
+    $prepared = Join-Path $source ("artifacts\$version\Portable-install-" + [guid]::NewGuid().ToString('N'))
+    if (-not $PSCmdlet.ShouldProcess($prepared, 'Preparar un paquete Portable SIN FIRMA desde las fuentes locales antes de instalar')) { return }
+    Write-Warning 'Estas instalando fuentes locales. Se generara un paquete Portable sin firma; los hashes no autentican al editor.'
+    # Usar el motor soportado aunque el usuario invoque install.ps1 desde PowerShell 7.
+    $windowsPowerShell = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+    & $windowsPowerShell -NoProfile -File $builder -Format Portable -OutputDirectory $prepared
+    if ($LASTEXITCODE -ne 0) { throw "No se pudo preparar el paquete Portable (codigo $LASTEXITCODE). No se ha instalado nada. Revisa la salida anterior: $prepared" }
+    $source = $prepared
+}
 $package = Assert-ATSPackage $source -RequireSignature:$RequireSignature
 Assert-ATSPlainDirectory $config.Root
 $previousReceipt = $null

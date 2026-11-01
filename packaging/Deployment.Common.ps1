@@ -62,7 +62,7 @@ function Assert-ATSPackage([string]$Directory, [switch]$RequireSignature) {
     $manifestPath = Join-Path $Directory 'SHA256.json'
     $metadataPath = Join-Path $Directory 'VERSION.json'
     foreach ($requiredPath in @($manifestPath,$metadataPath)) {
-        if (-not (Test-Path -LiteralPath $requiredPath -PathType Leaf)) { throw 'Selecciona una distribucion completa generada por Build-Release, con SHA256.json y VERSION.json.' }
+        if (-not (Test-Path -LiteralPath $requiredPath -PathType Leaf)) { throw 'Paquete incompleto: faltan SHA256.json o VERSION.json. Desde el repositorio ejecuta .\install.ps1; para un paquete ya construido usa .\install.ps1 -SourceDirectory "ruta-al-paquete". No crees hashes manualmente para omitir esta validacion.' }
     }
     $hashes = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
     if ($hashes.format -eq 'Msi') { throw 'Este paquete debe instalarse con su MSI, no con install.ps1.' }

@@ -2,6 +2,14 @@
 
 Este archivo registra cambios de código. La auditoría de uso se guarda por separado; no contiene contraseñas ni certifica el resultado de herramientas externas.
 
+## Sin publicar — instalación desde fuentes · 2026-11-01
+
+- Corregido el error al ejecutar `install.ps1` en la raíz del repositorio: reconoce las fuentes y prepara un Portable nuevo antes de la validación e instalación habituales.
+- Preparación con Windows PowerShell 5.1, sin descargas ni sobrescritura de distribuciones previas; salida única bajo `artifacts`.
+- `-WhatIf` retorna antes de construir. `-RequireSignature` exige un paquete firmado previamente, sin degradar la política.
+- Paquetes incompletos/alterados y directorios de fuentes ajenos no activan la preparación; se mantienen hashes, allowlist, revalidación de staging y rollback.
+- `Build-Release.ps1` admite `-OutputDirectory`; instrucciones de recuperación y pruebas de regresión añadidas. Las simulaciones nativas de instalación requieren Windows Client; CI Server comprueba construcción e integridad, no simula compatibilidad Client.
+
 ## Sin publicar — rediseño de la web · 2026-11-01
 
 - Nueva identidad visual NEXUS: hero con ilustración CSS original y explícitamente conceptual, colores índigo/menta/lavanda, tarjetas y botones redondeados.

@@ -9,6 +9,7 @@ EXE requiere ps2exe 1.0.17 instalado previamente. MSI requiere ademas WiX Toolse
 [CmdletBinding()]
 param(
     [ValidateSet('Portable','Exe','Msi')][string]$Format = 'Portable',
+    [string]$OutputDirectory,
     [version]$Ps2ExeVersion = '1.0.17',
     [ValidatePattern('^[a-fA-F0-9]{40}$')][string]$CertificateThumbprint,
     [uri]$TimestampServer
@@ -19,7 +20,7 @@ if ($env:OS -ne 'Windows_NT') { throw 'La compilacion de distribuciones debe rea
 $root = Split-Path $PSScriptRoot -Parent
 $version = (Get-Content (Join-Path $root 'VERSION.json') -Raw | ConvertFrom-Json).version
 if ($version -notmatch '^\d+\.\d+\.\d+$') { throw 'Version de paquete no valida.' }
-$out = Join-Path $root "artifacts\$version\$Format"
+$out = if ($OutputDirectory) { $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputDirectory) } else { Join-Path $root "artifacts\$version\$Format" }
 if ((Test-Path $out) -and @(Get-ChildItem $out -Force).Count -gt 0) { throw "La salida $out no esta vacia. Archivala o retirala antes de reconstruir para evitar archivos obsoletos." }
 if ($CertificateThumbprint -and $null -eq $TimestampServer) { throw 'La firma requiere -TimestampServer HTTPS.' }
 if ($null -ne $TimestampServer -and -not $CertificateThumbprint) { throw 'El sello de tiempo requiere -CertificateThumbprint.' }
