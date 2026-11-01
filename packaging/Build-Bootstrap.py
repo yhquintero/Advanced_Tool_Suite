@@ -14,17 +14,18 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'Releases' / 'AdvancedToolSuite-v4.0.0-setup.ps1'
 ROOT_FILES = (
     '.gitignore', 'README.md', 'LEEME-PRIMERO.md', 'MANUAL.md', 'BUILD.md',
-    'CHANGELOG.md', 'LICENSE', 'VERSION.json', 'install.ps1', 'uninstall.ps1',
+    'CHANGELOG.md', 'LICENSE', 'LICENSE.es.md', 'SECURITY.md', 'CONTRIBUTING.md',
+    'THIRD_PARTY_NOTICES.md', 'VERSION.json', 'install.ps1', 'uninstall.ps1',
 )
-TREES = ('Tool', 'Assets', 'Plugins', 'docs', 'packaging', 'tests', '.github')
-EXTENSIONS = {'.ps1', '.bat', '.cmd', '.md', '.json', '.xml', '.wxs', '.py', '.svg', '.ico', '.yml', '.yaml', '.txt'}
+TREES = ('Tool', 'Assets', 'Plugins', 'docs', 'packaging', 'tests', '.github', 'site')
+EXTENSIONS = {'.ps1', '.bat', '.cmd', '.md', '.json', '.xml', '.wxs', '.py', '.svg', '.ico', '.yml', '.yaml', '.txt', '.html', '.css'}
 EXCLUDED = {'__pycache__', '.git', '.venv', '.pytest_cache', 'artifacts', 'Releases', 'node_modules'}
 
 
 def source_files():
     paths = [ROOT / name for name in ROOT_FILES]
     for tree in TREES:
-        paths.extend(p for p in (ROOT / tree).rglob('*') if p.is_file() and p.suffix.lower() in EXTENSIONS)
+        paths.extend(p for p in (ROOT / tree).rglob('*') if p.is_file() and (p.suffix.lower() in EXTENSIONS or p.name in {'CODEOWNERS', '.nojekyll'}))
     selected = []
     seen = set()
     for path in sorted(set(paths)):

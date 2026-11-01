@@ -75,12 +75,13 @@ class DistributionTests(unittest.TestCase):
         source = text('.github/workflows/validate.yml')
         self.assertIn('Run-Pester.ps1', source)
         self.assertIn('5.7.1', source)
-        self.assertIn('actions/upload-artifact@v4', source)
+        self.assertRegex(source, r'actions/upload-artifact@[a-f0-9]{40}')
 
     def test_final_docs_and_license_exist(self):
         for path in ('MANUAL.md', 'BUILD.md', 'CHANGELOG.md', 'LICENSE', 'docs/ROADMAP-v4.0.0.md'):
             self.assertGreater(len(text(path)), 100)
-        self.assertIn('SPDX-License-Identifier: MIT', text('LICENSE'))
+        self.assertIn('MIT License', text('LICENSE'))
+        self.assertIn('Permission is hereby granted', text('LICENSE'))
         self.assertIn('no implementado', text('docs/ROADMAP-v4.0.0.md'))
 
     def test_msi_prevents_mixing_script_install(self):

@@ -57,7 +57,7 @@ if ($Format -eq 'Portable') {
     # El panel no se eleva por completo: UAC se mantiene por accion.
 
 }
-foreach ($file in @('README.md','MANUAL.md','BUILD.md','CHANGELOG.md','LICENSE','VERSION.json','install.ps1','uninstall.ps1')) { Copy-Item (Join-Path $root $file) $out -Force }
+foreach ($file in @('README.md','MANUAL.md','BUILD.md','CHANGELOG.md','LICENSE','LICENSE.es.md','SECURITY.md','THIRD_PARTY_NOTICES.md','VERSION.json','install.ps1','uninstall.ps1')) { Copy-Item (Join-Path $root $file) $out -Force }
 Copy-Item (Join-Path $root 'Assets\Suite.ico') $out -Force
 Copy-Item (Join-Path $PSScriptRoot 'manifest.xml') $out -Force
 Copy-Item (Join-Path $PSScriptRoot 'Deployment.Common.ps1') $out -Force

@@ -1,0 +1,35 @@
+name: Informar de un fallo
+description: Describe un fallo reproducible de forma segura.
+title: '[Fallo] '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: Para vulnerabilidades usa SECURITY.md. No adjuntes contraseñas, claves, inventarios o logs sin anonimizar.
+  - type: input
+    id: version
+    attributes:
+      label: Versión o commit y entorno
+      description: Windows, PowerShell, .NET y arquitectura; sin nombre real del equipo o usuario.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Pasos mínimos para reproducir
+      description: Usa datos ficticios y no ejecutes acciones destructivas en producción.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado y observado
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacidad
+      options:
+        - label: He retirado credenciales, datos personales e información sensible y no estoy divulgando una vulnerabilidad explotable.
+          required: true

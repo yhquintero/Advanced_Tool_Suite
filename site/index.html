@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Advanced Tool Suite NEXUS: centro de control PowerShell para Windows, documentación transparente y plugins declarativos de diagnóstico.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'none'; connect-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="dark">
+  <title>Advanced Tool Suite · NEXUS</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="wrap header">
+  <a class="brand" href="./" aria-label="NEXUS, inicio"><img src="assets/logo.svg" width="40" height="40" alt=""><span>ATS <strong>/ NEXUS</strong></span></a>
+  <nav aria-label="Principal"><a href="#herramientas">Herramientas</a><a href="#seguridad">Seguridad</a><a href="#documentacion">Documentación</a><a href="https://github.com/yhquintero/Advanced_Tool_Suite">GitHub ↗</a></nav>
+</header>
+<main id="contenido">
+  <section class="wrap hero" aria-labelledby="titulo">
+    <p class="eyebrow">WINDOWS 10/11 · POWERSHELL · EN ESPAÑOL</p>
+    <p class="status"><span aria-hidden="true">●</span> v4.0.0 · inicio de desarrollo</p>
+    <h1 id="titulo">Tu equipo.<br>Tu centro de <span>control.</span></h1>
+    <p class="lead">Diagnósticos y herramientas de Windows en una interfaz local. Un único autoextraíble, documentación clara y decisiones bajo tu control.</p>
+    <div class="actions"><a class="button primary" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/LEEME-PRIMERO.md">Empezar con seguridad <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/yhquintero/Advanced_Tool_Suite">Explorar el código</a></div>
+    <p class="fine">No es un antivirus ni una garantía de protección absoluta. Las pruebas Windows, la compilación y la firma deben comprobarse por revisión.</p>
+    <dl class="stats"><div><dt>42</dt><dd>herramientas integradas</dd></div><div><dt>1</dt><dd>autoextraíble del proyecto</dd></div><div><dt>0</dt><dd>scripts de plugins externos</dd></div></dl>
+  </section>
+  <section class="wrap section" id="herramientas" aria-labelledby="funciones">
+    <p class="eyebrow">DISEÑADO PARA ENTENDER QUÉ EJECUTAS</p><h2 id="funciones">Claridad antes que automatismos.</h2>
+    <div class="cards">
+      <article class="card"><span class="number">01 / INTERFAZ</span><h3>Todo en su sitio</h3><p>Panel WPF, categorías, búsqueda, favoritos, cuatro temas y modo compacto. Recursos embebidos en el PS1 principal.</p></article>
+      <article class="card"><span class="number">02 / DIAGNÓSTICO</span><h3>Datos, no promesas mágicas</h3><p>Información del sistema, memoria, red y salud reportada de discos. Sin afirmar que limpiar RAM o borrar archivos haga al equipo seguro.</p></article>
+      <article class="card"><span class="number">03 / PLUGINS V4</span><h3>Declarativos y explícitos</h3><p>Importación inactiva y aprobación por huella. Solo diagnósticos permitidos; no se ejecutan PS1, DLL o EXE de terceros.</p></article>
+    </div>
+  </section>
+  <section class="wrap section security" id="seguridad" aria-labelledby="protecciones">
+    <div><p class="eyebrow">SEGURIDAD SIN ABSOLUTOS</p><h2 id="protecciones">Conoce los límites.<br>Conserva el control.</h2><p>UAC por acción, confirmaciones y restricciones locales ayudan a prevenir accidentes. No sustituyen cuentas limitadas, copias de seguridad ni políticas de Windows.</p><a class="text-link" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/SECURITY.md">Leer la política de seguridad ↗</a></div>
+    <ul class="checklist"><li>Verifica origen y firma; un hash no autentica al editor.</li><li>Extrae solo en una carpeta nueva, sin sobrescritura.</li><li>Prueba cambios delicados en una VM y guarda tus datos.</li><li>No compartas inventarios, credenciales o logs sin anonimizar.</li><li>Consulta resultados de CI: no confundas código con validación.</li></ul>
+  </section>
+  <section class="wrap section" id="documentacion" aria-labelledby="guias">
+    <p class="eyebrow">FUENTES ABIERTAS · ESTADO VISIBLE</p><h2 id="guias">El siguiente paso, documentado.</h2>
+    <div class="docs">
+      <a class="doc" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/MANUAL.md"><span>Manual de usuario</span><small>Uso, permisos y precauciones ↗</small></a>
+      <a class="doc" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/BUILD.md"><span>Construcción y firma</span><small>EXE, MSI y Authenticode ↗</small></a>
+      <a class="doc" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/CHANGELOG.md"><span>Historial de versiones</span><small>Cambios implementados y pendientes ↗</small></a>
+      <a class="doc" href="https://github.com/yhquintero/Advanced_Tool_Suite/actions"><span>Pruebas y CI</span><small>Resultados reales por revisión ↗</small></a>
+    </div>
+    <aside class="notice"><strong>Requisitos:</strong> Windows 10/11 x64 de escritorio, Windows PowerShell 5.1 y .NET Framework 4.8. No se incluyen paquetes EXE/MSI certificados ni promesas de validación universal.</aside>
+  </section>
+</main>
+<footer class="wrap footer"><p>Advanced Tool Suite · NEXUS</p><p><a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/LICENSE">MIT</a> · <a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/SECURITY.md">Seguridad</a> · Sin JavaScript, formularios, analítica ni cookies propias.</p></footer>
+</body>
+</html>
