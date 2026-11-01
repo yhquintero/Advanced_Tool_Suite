@@ -64,6 +64,9 @@ jobs:
       - name: Crear controles WPF sin mostrar ventanas ni ejecutar herramientas
         shell: powershell
         run: powershell.exe -NoProfile -STA -File .\Tool\AdvancedToolSuite.ps1 -SmokeTest
+      - name: Regresion de preparacion desde fuentes (instalacion simulada solo en Client)
+        shell: powershell
+        run: .\tests\Probar-Instalacion-Fuentes.ps1
       - name: Empaquetado portable
         shell: powershell
         run: .\packaging\Build-Release.ps1 -Format Portable
