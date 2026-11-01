@@ -2,25 +2,6 @@
 
 Este archivo registra cambios de código. La auditoría de uso se guarda por separado; no contiene contraseñas ni certifica el resultado de herramientas externas.
 
-## Sin publicar — analizador de cobros · 2026-11-01
-
-- Nuevo [`Cobros/AnalizadorCobros.html`](Cobros/README.md), un único archivo que se abre con doble clic:
-  - Lee el Excel de pagos: `.xls` 97-2003, `.xlsx`/`.xlsm`, CSV, XML 2003 y tablas HTML.
-  - Muestra quién no pagó cada mes por **Contribuyente**, quién pagó fuera de plazo, y gráficos y tablas dinámicas del **Importe ($)**.
-- Regla: pago en plazo dentro de los primeros 10 días hábiles del mes.
-  - Feriados de Cuba editables, con Viernes Santo y traslado al lunes del 1.º de Mayo y del 10 de Octubre.
-  - Opcionales: sábados hábiles, columnas de período y estado, y exigir desde el primer pago.
-- Sin red ni dependencias:
-  - CSP por hash con `connect-src 'none'`, sin recursos remotos ni HTML inyectado.
-  - Solo guarda ajustes en el navegador, nunca datos.
-  - `.gitignore` excluye hojas de cálculo salvo los ejemplos ficticios, y el autoextraíble solo empaqueta esos ejemplos.
-- Exportación CSV para Excel (BOM, separador regional y fórmulas neutralizadas), PNG de los gráficos e impresión.
-- Pruebas:
-  - Núcleo con Node.js: calendario, reglas, lectores BIFF8/SST con CONTINUE/xlsx/CSV/HTML/XML, tabla dinámica y CSV.
-  - Comprobaciones estáticas en Python y ejemplos ficticios regenerables.
-  - Aún sin probar con el archivo real del usuario ni con `.xls` de versiones concretas de Excel.
-- Autoextraíble regenerado.
-
 ## Sin publicar — portada GitHub y recorrido web · 2026-11-01
 
 - README convertido en portada de producto: marca, lema, banner SVG original, navegación, resumen, ecosistema, funciones, permisos, FAQ y documentación.
