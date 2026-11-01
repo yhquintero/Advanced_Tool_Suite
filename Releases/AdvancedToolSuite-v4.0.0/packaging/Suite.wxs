@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="Advanced Tool Suite" Language="3082" Version="$(var.ProductVersion)" Manufacturer="Advanced Tool Suite" UpgradeCode="738BD40E-15E5-43DF-A971-33E0B24B1569">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perUser" Platform="x64"/>
+    <MajorUpgrade DowngradeErrorMessage="Ya hay una version mas reciente instalada."/>
+    <MediaTemplate EmbedCab="yes"/>
+    <Icon Id="SuiteIcon" SourceFile="$(var.SourceDir)\Suite.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="SuiteIcon"/>
+    <Property Id="ARPNOMODIFY" Value="1"/>
+    <Property Id="NETFRAMEWORK48"><RegistrySearch Id="Net48Search" Root="HKLM" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" Name="Release" Type="raw" Win64="yes"/></Property>
+    <Property Id="WINDOWSBUILDREAL"><RegistrySearch Id="WindowsBuildSearch" Root="HKLM" Key="SOFTWARE\Microsoft\Windows NT\CurrentVersion" Name="CurrentBuildNumber" Type="raw" Win64="yes"/></Property>
+    <Property Id="ATSSCRIPTINSTALL"><RegistrySearch Id="ScriptInstallSearch" Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\AdvancedToolSuite.Nexus" Name="ATSProductId" Type="raw"/></Property>
+    <Condition Message="Desinstala primero la copia gestionada por install.ps1.">Installed OR NOT ATSSCRIPTINSTALL</Condition>
+    <Condition Message="Se necesita Windows 10/11 x64 con .NET Framework 4.8 y Windows PowerShell 5.1.">Installed OR (VersionNT64 AND (WINDOWSBUILDREAL &gt;= 10240) AND (MsiNTProductType = 1) AND (NETFRAMEWORK48 &gt;= "#528040"))</Condition>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="ProgramsFolder" Name="Programs">
+          <Directory Id="INSTALLFOLDER" Name="AdvancedToolSuite">
+            <Component Id="Application" Guid="0D3F7D26-C578-4B4B-8023-699B7B8DEEC9" Win64="yes">
+              <File Id="SuiteExe" Source="$(var.SourceDir)\AdvancedToolSuite.exe"/>
+              <RegistryValue Root="HKCU" Key="Software\AdvancedToolSuite\Installer" Name="Application" Type="integer" Value="1" KeyPath="yes"/>
+              <RemoveFolder Id="RemoveInstallFolder" Directory="INSTALLFOLDER" On="uninstall"/>
+              <RemoveFolder Id="RemoveProgramsFolder" Directory="ProgramsFolder" On="uninstall"/>
+            </Component>
+            <Component Id="Documentation" Guid="AA4B61EB-7C23-4E99-A21F-6E65EFB181ED" Win64="yes">
+              <File Id="Readme" Source="$(var.SourceDir)\README.md"/>
+              <File Id="Changelog" Source="$(var.SourceDir)\CHANGELOG.md"/>
+              <File Id="Manual" Source="$(var.SourceDir)\MANUAL.md"/>
+              <File Id="BuildGuide" Source="$(var.SourceDir)\BUILD.md"/>
+              <File Id="License" Source="$(var.SourceDir)\LICENSE"/>
+              <File Id="LicenseSpanish" Source="$(var.SourceDir)\LICENSE.es.md"/>
+              <File Id="SecurityPolicy" Source="$(var.SourceDir)\SECURITY.md"/>
+              <File Id="ThirdPartyNotices" Source="$(var.SourceDir)\THIRD_PARTY_NOTICES.md"/>
+              <File Id="Version" Source="$(var.SourceDir)\VERSION.json"/>
+              <File Id="IconFile" Source="$(var.SourceDir)\Suite.ico"/>
+              <RegistryValue Root="HKCU" Key="Software\AdvancedToolSuite\Installer" Name="Documentation" Type="integer" Value="1" KeyPath="yes"/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="SuiteMenu" Name="Advanced Tool Suite">
+          <Component Id="MenuShortcut" Guid="B0F0CE2F-9C2B-46FC-AE8B-360CD762A89D" Win64="yes">
+            <Shortcut Id="StartMenuShortcut" Name="Advanced Tool Suite" Description="Centro de control para Windows" Target="[#SuiteExe]" WorkingDirectory="INSTALLFOLDER" Icon="SuiteIcon"/>
+            <RemoveFolder Id="RemoveSuiteMenu" On="uninstall"/>
+            <RegistryValue Root="HKCU" Key="Software\AdvancedToolSuite\Installer" Name="Shortcut" Type="integer" Value="1" KeyPath="yes"/>
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+    <Feature Id="MainFeature" Title="Advanced Tool Suite" Level="1">
+      <ComponentRef Id="Application"/><ComponentRef Id="Documentation"/><ComponentRef Id="MenuShortcut"/>
+    </Feature>
+  </Product>
+</Wix>

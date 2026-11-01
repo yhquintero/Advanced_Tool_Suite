@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="NEXUS reúne 42 herramientas de Windows en un panel PowerShell en español. Explora sus módulos, consulta la guía y prepara una ejecución segura.">
+  <meta name="theme-color" content="#10132a">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'none'; connect-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="NEXUS · Tu Windows, bajo control">
+  <meta property="og:description" content="Un panel local, 42 herramientas y una forma más clara de trabajar con Windows. Proyecto en desarrollo, con código y límites visibles.">
+  <title>NEXUS · Tu Windows, bajo control</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="announcement"><span class="live-dot" aria-hidden="true"></span> NEXUS 4.0.0 <span class="announcement-divider">/</span> Inicio de desarrollo, no versión certificada <a href="#estado">Ver estado <span aria-hidden="true">↗</span></a></div>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="./" aria-label="NEXUS, inicio"><img src="assets/logo.svg" width="38" height="38" alt=""><span>NEXUS<small>ADVANCED TOOL SUITE</small></span></a>
+    <nav aria-label="Navegación principal"><a href="#modulos">Funciones</a><a href="#catalogo">Herramientas</a><a href="#empezar">Cómo empezar</a><a href="#preguntas">Preguntas</a></nav>
+    <a class="button button-small" href="guia.html">Guía de inicio <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<main id="contenido">
+  <section class="wrap hero" aria-labelledby="titulo">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> MENOS VENTANAS. MÁS CLARIDAD.</p>
+      <h1 id="titulo">Tu Windows.<br>Un solo lugar.<br><span>Todo más claro.</span></h1>
+      <p class="lead">Diagnostica, organiza y accede a las herramientas de tu equipo desde un panel local en español. Sin comandos que tengas que adivinar.</p>
+      <div class="actions"><a class="button primary" href="guia.html">Preparar mi primera ejecución <span aria-hidden="true">→</span></a><a class="text-link" href="https://github.com/yhquintero/Advanced_Tool_Suite">Explorar el proyecto ↗</a></div>
+      <ul class="hero-points"><li>Windows 10/11 x64</li><li>PowerShell 5.1</li><li>Sin telemetría de la suite</li></ul>
+      <p class="hero-note">El navegador presenta el proyecto. Las herramientas se ejecutan únicamente en la aplicación Windows, no desde esta web.</p>
+    </div>
+    <figure class="product-figure">
+      <div class="preview-label"><span class="tiny-square" aria-hidden="true"></span> ASÍ SE ORGANIZA NEXUS <span>VISTA CONCEPTUAL</span></div>
+      <div class="product-window" role="img" aria-label="Ilustración del centro de control, sin conexión al equipo">
+        <div class="window-bar"><span class="window-dots" aria-hidden="true">● ● ●</span><span>Advanced Tool Suite</span><span class="local-badge">LOCAL</span></div>
+        <div class="window-body">
+          <div class="mock-sidebar" aria-hidden="true"><div class="mock-mark">N<span>↗</span></div><span class="mock-active">◫ <span>Resumen</span></span><span>▦ <span>Sistema</span></span><span>⌁ <span>Red</span></span><span>◇ <span>Seguridad</span></span><span>⊞ <span>Plugins</span></span><div class="mock-sidebar-bottom">ATS / v4</div></div>
+          <div class="mock-main">
+            <div class="mock-greeting"><div><small>ESPACIO DE TRABAJO</small><h2>Centro de control<span>.</span></h2></div><span class="mock-avatar" aria-hidden="true">N</span></div>
+            <div class="mock-metrics"><div><span>CPU</span><strong>— <small>%</small></strong><div class="spark spark-a" aria-hidden="true"></div></div><div><span>MEMORIA</span><strong>— <small>GB</small></strong><div class="spark spark-b" aria-hidden="true"></div></div><div><span>HERRAMIENTAS</span><strong>42 <small>locales</small></strong><span class="metric-caption">Organizadas por categoría</span></div></div>
+            <div class="mock-section-title"><strong>Tu siguiente diagnóstico</strong><span>ACCESOS RÁPIDOS</span></div>
+            <div class="mock-tool-grid"><div><span class="tool-symbol lavender" aria-hidden="true">▦</span><strong>Información del sistema</strong><small>Conoce tu equipo</small></div><div><span class="tool-symbol mint" aria-hidden="true">⌁</span><strong>Configuración IP</strong><small>Consulta tu conexión</small></div><div><span class="tool-symbol peach" aria-hidden="true">◉</span><strong>Salud de discos</strong><small>Estado reportado por Windows</small></div><div><span class="tool-symbol blue" aria-hidden="true">⊞</span><strong>Plugins declarativos</strong><small>Importa. Revisa. Aprueba.</small></div></div>
+            <div class="mock-activity"><span class="live-dot" aria-hidden="true"></span><span>Control local. Acciones explícitas.</span><span class="activity-line" aria-hidden="true"></span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Ilustración de organización, no captura ni demo del programa. Los guiones y trazos son decorativos: no representan mediciones reales.</figcaption>
+      <div class="floating-note"><span aria-hidden="true">✓</span><div><strong>Tú decides qué ejecutar</strong><small>Permisos y confirmaciones por acción</small></div></div>
+    </figure>
+  </section>
+  <div class="wrap proof-strip" aria-label="Resumen del proyecto"><div><strong>42</strong><span>herramientas integradas</span></div><div><strong>6</strong><span>categorías de trabajo</span></div><div><strong>1</strong><span>autoextraíble del proyecto</span></div><div><strong>ES</strong><span>interfaz y documentación</span></div></div>
+
+  <section class="wrap section" id="modulos" aria-labelledby="funciones">
+    <div class="section-heading"><div><p class="eyebrow">UN FLUJO MÁS ORDENADO</p><h2 id="funciones">Lo que necesitas.<br><span class="muted-heading">Sin perderte entre ventanas.</span></h2></div><p>Para conocer tu equipo, resolver tareas habituales y trabajar con más contexto. Sin prometer optimizaciones mágicas.</p></div>
+    <div class="feature-grid">
+      <article class="feature-card"><span class="tool-symbol lavender" aria-hidden="true">▦</span><span class="feature-number">01</span><h3>Tu equipo, explicado</h3><p>Información del sistema, memoria, procesos e inventarios locales para saber con qué estás trabajando.</p><a href="#catalogo">Explorar Sistema <span aria-hidden="true">→</span></a></article>
+      <article class="feature-card"><span class="tool-symbol mint" aria-hidden="true">⌁</span><span class="feature-number">02</span><h3>Conexiones más claras</h3><p>Consulta IP, adaptadores y conectividad. Diferencia un diagnóstico de un restablecimiento de red.</p><a href="#catalogo">Explorar Red <span aria-hidden="true">→</span></a></article>
+      <article class="feature-card"><span class="tool-symbol peach" aria-hidden="true">◇</span><span class="feature-number">03</span><h3>Cambios conscientes</h3><p>Confirmaciones, permisos por acción y avisos antes de operaciones delicadas. Sin elevar todo el panel.</p><a href="seguridad.html">Conocer los límites <span aria-hidden="true">→</span></a></article>
+      <article class="feature-card"><span class="tool-symbol blue" aria-hidden="true">◫</span><span class="feature-number">04</span><h3>Un panel a tu manera</h3><p>Buscador, favoritos, cuatro temas futuristas y modo compacto en la aplicación WPF de Windows.</p><a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/MANUAL.md">Ver el manual <span aria-hidden="true">↗</span></a></article>
+      <article class="feature-card"><span class="tool-symbol mint" aria-hidden="true">⊞</span><span class="feature-number">05</span><h3>Extiende, con límites</h3><p>Plugins JSON de diagnóstico. Importar no activa ni ejecuta; aprobar depende del contenido y de su huella.</p><a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/Plugins/README.md">Entender los plugins <span aria-hidden="true">↗</span></a></article>
+      <article class="feature-card"><span class="tool-symbol lavender" aria-hidden="true">≡</span><span class="feature-number">06</span><h3>Historial visible</h3><p>Consulta actividad, exporta registros y revisa cambios de versión. Los logs son operativos, no inmutables.</p><a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/CHANGELOG.md">Consultar cambios <span aria-hidden="true">↗</span></a></article>
+    </div>
+  </section>
+
+  <section class="ecosystem-section" aria-labelledby="ecosistema"><div class="wrap section"><div class="section-heading"><div><p class="eyebrow">CADA PIEZA TIENE SU FUNCIÓN</p><h2 id="ecosistema">Un proyecto. Tres formas de explorarlo.</h2></div></div><div class="ecosystem-grid"><article><span class="ecosystem-tag">01 / ESTA WEB</span><h3>Descubre y prepara</h3><p>Consulta módulos, guía y seguridad desde cualquier navegador. Esta web no inspecciona ni administra tu ordenador.</p><span class="pill">Sin JavaScript ni formularios</span></article><article class="ecosystem-highlight"><span class="ecosystem-tag">02 / APLICACIÓN WINDOWS</span><h3>Trabaja en tu equipo</h3><p>El PS1 principal abre la interfaz WPF. Las acciones se ejecutan localmente, con los permisos que correspondan.</p><span class="pill">Windows · PowerShell · WPF</span></article><article><span class="ecosystem-tag">03 / FUENTES Y PRUEBAS</span><h3>Revisa antes de confiar</h3><p>Código, manuales, contratos y recetas de distribución. Comprueba los resultados reales de cada revisión.</p><a class="text-link" href="https://github.com/yhquintero/Advanced_Tool_Suite/actions">Ver ejecuciones de CI ↗</a></article></div></div></section>
+
+  <section class="wrap section" id="catalogo" aria-labelledby="herramientas"><div class="section-heading"><div><p class="eyebrow">CATÁLOGO DE LA APLICACIÓN</p><h2 id="herramientas">42 herramientas.<br><span class="muted-heading">Abre una categoría para conocerlas.</span></h2></div><p>Este catálogo informa, no ejecuta comandos. Las operaciones delicadas requieren precauciones adicionales en Windows.</p></div>
+    <div class="catalog" data-catalog="builtin">
+<!-- ATS_CATALOG_START -->
+      <details class="category"><summary>Sistema<span class="category-count">16 herramientas</span></summary><ul class="tool-list">
+        <li data-tool-id="1"><strong>Informacion del sistema</strong><span class="tool-permission">Abrir / consultar</span><small>Version de Windows, hardware y configuracion.</small></li>
+        <li data-tool-id="2"><strong>Administrador de tareas</strong><span class="tool-permission">Abrir / consultar</span><small>Procesos, consumo de CPU y memoria.</small></li>
+        <li data-tool-id="3"><strong>Administrador de dispositivos</strong><span class="tool-permission">Abrir / consultar</span><small>Hardware y controladores del equipo.</small></li>
+        <li data-tool-id="4"><strong>Servicios de Windows</strong><span class="tool-permission">UAC</span><small>Consulta y administra servicios.</small></li>
+        <li data-tool-id="6"><strong>Terminal administrativa</strong><span class="tool-permission">UAC</span><small>Abre CMD con privilegios elevados.</small></li>
+        <li data-tool-id="7"><strong>Panel de control</strong><span class="tool-permission">Abrir / consultar</span><small>Todas las opciones clasicas de Windows.</small></li>
+        <li data-tool-id="8"><strong>Editor del Registro</strong><span class="tool-permission warning">UAC · confirmar</span><small>Configuracion avanzada. Exporta antes de modificar.</small></li>
+        <li data-tool-id="9"><strong>Dispositivos de audio</strong><span class="tool-permission">Abrir / consultar</span><small>Reproduccion, grabacion y sonidos.</small></li>
+        <li data-tool-id="16"><strong>Todas las tareas</strong><span class="tool-permission">Abrir / consultar</span><small>Abre la vista avanzada del Panel de control.</small></li>
+        <li data-tool-id="24"><strong>Reiniciar Explorador</strong><span class="tool-permission warning">Confirmación</span><small>Cierra ventanas del Explorador y recarga la barra de tareas.</small></li>
+        <li data-tool-id="30"><strong>Exportar inventario</strong><span class="tool-permission">Abrir / consultar</span><small>Genera un informe local de hardware y red en Documentos.</small></li>
+        <li data-tool-id="31"><strong>Fecha y hora</strong><span class="tool-permission">Abrir / consultar</span><small>Reloj, zona horaria y sincronizacion.</small></li>
+        <li data-tool-id="36"><strong>Bloc de notas</strong><span class="tool-permission">Abrir / consultar</span><small>Editor de texto de Windows.</small></li>
+        <li data-tool-id="38"><strong>Aplicaciones instaladas</strong><span class="tool-permission">Abrir / consultar</span><small>Abre la carpeta de aplicaciones de Windows.</small></li>
+        <li data-tool-id="39"><strong>Activacion de Windows</strong><span class="tool-permission">Abrir / consultar</span><small>Consulta el estado de licencia en Configuracion.</small></li>
+        <li data-tool-id="41"><strong>Programador de tareas</strong><span class="tool-permission">UAC</span><small>Consulta y administra tareas programadas.</small></li>
+      </ul></details>
+      <details class="category"><summary>Mantenimiento<span class="category-count">7 herramientas</span></summary><ul class="tool-list">
+        <li data-tool-id="11"><strong>Comprobar unidad</strong><span class="tool-permission">UAC</span><small>CHKDSK en modo lectura; no programa reparaciones.</small></li>
+        <li data-tool-id="12"><strong>Convertir FAT32 a NTFS</strong><span class="tool-permission warning">UAC · confirmar</span><small>Conversion no reversible desde esta herramienta. Haz una copia.</small></li>
+        <li data-tool-id="13"><strong>Liberar espacio</strong><span class="tool-permission">Abrir / consultar</span><small>Abre el limpiador oficial; tu eliges que borrar.</small></li>
+        <li data-tool-id="14"><strong>Diagnostico de memoria</strong><span class="tool-permission">Abrir / consultar</span><small>Consulta consumo real; no cierra procesos ni promete liberar RAM.</small></li>
+        <li data-tool-id="15"><strong>Planes de energia</strong><span class="tool-permission">Abrir / consultar</span><small>Elige rendimiento o ahorro sin cambios automaticos.</small></li>
+        <li data-tool-id="19"><strong>Salud de los discos</strong><span class="tool-permission">Abrir / consultar</span><small>Estado reportado por Windows; no sustituye un diagnostico fisico.</small></li>
+        <li data-tool-id="32"><strong>Administrador de discos</strong><span class="tool-permission">UAC</span><small>Particiones y volumenes. Modifica con precaucion.</small></li>
+      </ul></details>
+      <details class="category"><summary>Red<span class="category-count">6 herramientas</span></summary><ul class="tool-list">
+        <li data-tool-id="5"><strong>Adaptadores de red</strong><span class="tool-permission">Abrir / consultar</span><small>Conexiones Ethernet, Wi-Fi y adaptadores.</small></li>
+        <li data-tool-id="20"><strong>Restablecer Winsock</strong><span class="tool-permission warning">UAC · confirmar</span><small>Restablece el catalogo de red; requiere reinicio posterior.</small></li>
+        <li data-tool-id="21"><strong>Configuracion de red</strong><span class="tool-permission">Abrir / consultar</span><small>Abre la configuracion de conexiones de Windows.</small></li>
+        <li data-tool-id="27"><strong>Configuracion IP</strong><span class="tool-permission">Abrir / consultar</span><small>Muestra direcciones, DNS y puertas de enlace.</small></li>
+        <li data-tool-id="28"><strong>Prueba de conectividad</strong><span class="tool-permission">Abrir / consultar</span><small>Envia cuatro solicitudes a google.com.</small></li>
+        <li data-tool-id="29"><strong>Consultar IP o dominio</strong><span class="tool-permission">Abrir / consultar</span><small>Prueba un destino validado con cuatro solicitudes.</small></li>
+      </ul></details>
+      <details class="category"><summary>Seguridad<span class="category-count">4 herramientas</span></summary><ul class="tool-list">
+        <li data-tool-id="33"><strong>Activar firewall</strong><span class="tool-permission warning">UAC · confirmar</span><small>Activa la proteccion en todos los perfiles.</small></li>
+        <li data-tool-id="34"><strong>Desactivar firewall</strong><span class="tool-permission warning">UAC · confirmar</span><small>Desprotege todos los perfiles. No recomendado.</small></li>
+        <li data-tool-id="35"><strong>Seguridad de Windows</strong><span class="tool-permission">Abrir / consultar</span><small>Centro de proteccion y estado del antivirus.</small></li>
+        <li data-tool-id="40"><strong>Analisis rapido Defender</strong><span class="tool-permission">UAC</span><small>Solicita un analisis rapido con Microsoft Defender.</small></li>
+      </ul></details>
+      <details class="category"><summary>Personalización<span class="category-count">6 herramientas</span></summary><ul class="tool-list">
+        <li data-tool-id="10"><strong>Ver archivos ocultos</strong><span class="tool-permission">Abrir / consultar</span><small>Activa su visualizacion sin alterar archivos del disco.</small></li>
+        <li data-tool-id="17"><strong>Menu contextual clasico</strong><span class="tool-permission warning">Confirmación</span><small>Windows 11: requiere reiniciar el Explorador o la sesion.</small></li>
+        <li data-tool-id="18"><strong>Restaurar menu moderno</strong><span class="tool-permission warning">Confirmación</span><small>Deshace el ajuste del menu clasico en Windows 11.</small></li>
+        <li data-tool-id="25"><strong>Modo oscuro</strong><span class="tool-permission">Abrir / consultar</span><small>Activa el tema oscuro de las aplicaciones de Windows.</small></li>
+        <li data-tool-id="26"><strong>Modo claro</strong><span class="tool-permission">Abrir / consultar</span><small>Restaura el tema claro de las aplicaciones de Windows.</small></li>
+        <li data-tool-id="37"><strong>Configuracion regional</strong><span class="tool-permission">Abrir / consultar</span><small>Formatos, idioma y opciones regionales.</small></li>
+      </ul></details>
+      <details class="category"><summary>Energía<span class="category-count">3 herramientas</span></summary><ul class="tool-list">
+        <li data-tool-id="22"><strong>Apagar equipo</strong><span class="tool-permission warning">Confirmación</span><small>Apagado inmediato tras confirmar. Guarda tu trabajo.</small></li>
+        <li data-tool-id="23"><strong>Reiniciar equipo</strong><span class="tool-permission warning">Confirmación</span><small>Reinicio inmediato tras confirmar. Guarda tu trabajo.</small></li>
+        <li data-tool-id="42"><strong>Cancelar apagado o reinicio</strong><span class="tool-permission">Abrir / consultar</span><small>Cancela una cuenta atras pendiente programada desde Windows.</small></li>
+      </ul></details>
+    <!-- ATS_CATALOG_END -->
+    </div>
+    <p class="fine">Las etiquetas describen la configuración de la suite, no garantizan que una herramienta del sistema sea de solo lectura. Consulta los permisos y riesgos antes de abrirla.</p>
+  </section>
+
+  <section class="wrap section start-section" id="empezar" aria-labelledby="primeros-pasos"><div class="section-heading"><div><p class="eyebrow">TU PRIMERA EJECUCIÓN</p><h2 id="primeros-pasos">Empieza con un archivo.<br>No con una lista de incógnitas.</h2></div><a class="button" href="guia.html">Abrir guía completa <span aria-hidden="true">→</span></a></div><ol class="steps"><li><span class="step-number">1</span><h3>Revisa el origen</h3><p>Obtén el autoextraíble desde una revisión verificada. Los hashes no sustituyen una firma ni una fuente confiable.</p></li><li><span class="step-number">2</span><h3>Verifica y extrae</h3><p>Usa <code>-ValidateOnly</code> para comprobarlo. Extrae en una carpeta nueva: no se sobrescriben proyectos anteriores.</p></li><li><span class="step-number">3</span><h3>Abre el panel local</h3><p>Inicia <code>Tool\Iniciar.cmd</code> como usuario estándar. Confirma únicamente las acciones que comprendas.</p></li></ol><div class="requirements"><span class="requirements-label">NECESITAS</span><span>Windows 10/11 x64</span><span>Windows PowerShell 5.1</span><span>.NET Framework 4.8</span></div></section>
+
+  <section class="wrap section" id="estado" aria-labelledby="version"><div class="release-panel"><div><p class="eyebrow">ESTADO TRANSPARENTE</p><h2 id="version">v4.0.0 está empezando.<br>El progreso, a la vista.</h2><p>No confundimos una función escrita con una validación real en todas las máquinas. Antes de distribuir o usar en producción, hay pruebas que completar.</p><a class="text-link" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/docs/ROADMAP-v4.0.0.md">Seguir la hoja de ruta ↗</a></div><ul class="release-list"><li><span class="state state-current">En el código</span><span>Panel WPF y plugins declarativos</span></li><li><span class="state state-review">Por validar</span><span>Windows, Pester y operaciones administrativas por revisión</span></li><li><span class="state state-review">Por construir</span><span>EXE/MSI y firma digital real</span></li><li><span class="state state-later">Planificado</span><span>Idiomas, gráficas, editor de temas, AD y workflows</span></li></ul></div></section>
+
+  <section class="wrap section faq-section" id="preguntas" aria-labelledby="faq"><div><p class="eyebrow">ANTES DE EMPEZAR</p><h2 id="faq">Buenas preguntas.<br>Respuestas directas.</h2><a class="text-link" href="seguridad.html">Leer sobre seguridad →</a></div><div class="faq-list">
+    <details><summary>¿Puedo ejecutar las herramientas desde esta web?</summary><p>No. Esta web presenta el proyecto y su documentación. Las herramientas funcionan en Windows mediante PowerShell y WPF. No hay acceso remoto al equipo desde el navegador.</p></details>
+    <details><summary>¿Es un antivirus o una herramienta de optimización automática?</summary><p>No. Organiza diagnósticos y accesos administrativos. No promete liberar RAM, acelerar CPU ni garantizar que el equipo esté protegido o libre de fallos.</p></details>
+    <details><summary>¿Necesito administrador para abrir NEXUS?</summary><p>Se recomienda usuario estándar. Algunas acciones solicitan UAC por separado; no hace falta elevar todo el panel. Cancelar UAC no concede permisos.</p></details>
+    <details><summary>¿Funciona sin Internet?</summary><p>El panel y la extracción no necesitan descargar módulos para abrirse. Las pruebas de conectividad y determinadas herramientas de Windows sí pueden usar la red cuando las solicitas.</p></details>
+    <details><summary>¿El autoextraíble está firmado?</summary><p>No se afirma que el fichero incluido esté firmado. Se comprueba integridad mediante hashes, pero estos no autentican al distribuidor. La receta Authenticode necesita un certificado autorizado y verificación real.</p></details>
+    <details><summary>¿Se pueden deshacer todos los cambios?</summary><p>No. Deshacer cubre un valor interno de Registro. No revierte una conversión a NTFS, archivos borrados o cambios externos. Los puntos de restauración tampoco sustituyen copias de tus datos.</p></details>
+    <details><summary>¿Qué licencia tiene el proyecto?</summary><p>MIT, con documentación de derechos y dependencias. Esta licencia no cambia las de herramientas de terceros ni garantiza seguridad. Revisa <a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/LICENSE">el texto canónico</a> y los avisos antes de redistribuir.</p></details>
+  </div></section>
+
+  <section class="wrap section" id="documentacion" aria-labelledby="guias"><div class="section-heading"><div><p class="eyebrow">MENOS SUPOSICIONES. MÁS CONTEXTO.</p><h2 id="guias">La documentación también<br>es parte de la herramienta.</h2></div></div><div class="docs"><a class="doc" href="guia.html"><span class="doc-type">EMPEZAR</span><strong>Primera ejecución</strong><small>Requisitos y pasos claros <span aria-hidden="true">↗</span></small></a><a class="doc" href="seguridad.html"><span class="doc-type">PROTEGER</span><strong>Seguridad y privacidad</strong><small>Permisos, datos y límites <span aria-hidden="true">↗</span></small></a><a class="doc" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/MANUAL.md"><span class="doc-type">TRABAJAR</span><strong>Manual completo</strong><small>Uso de la aplicación Windows <span aria-hidden="true">↗</span></small></a><a class="doc" href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/BUILD.md"><span class="doc-type">CONSTRUIR</span><strong>Distribución y firma</strong><small>Portable, EXE y MSI <span aria-hidden="true">↗</span></small></a></div></section>
+  <section class="wrap final-cta"><div><p class="eyebrow">CLARIDAD PARA TU SIGUIENTE PASO</p><h2>Conoce tu equipo.<br>Decide con más contexto.</h2><p>Empieza por la guía. Conserva siempre el control.</p></div><a class="button primary" href="guia.html">Explorar la guía de inicio <span aria-hidden="true">→</span></a></section>
+</main>
+<footer class="wrap footer"><div><a class="brand" href="./"><img src="assets/logo.svg" width="32" height="32" alt=""><span>NEXUS<small>ADVANCED TOOL SUITE</small></span></a><p>Herramientas locales. Decisiones conscientes.</p></div><div class="footer-links"><a href="https://github.com/yhquintero/Advanced_Tool_Suite">Código fuente ↗</a><a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/CHANGELOG.md">Novedades ↗</a><a href="seguridad.html">Seguridad</a><a href="https://github.com/yhquintero/Advanced_Tool_Suite/blob/main/LICENSE">Licencia MIT ↗</a></div><p class="footer-note">Proyecto en desarrollo. Sin JavaScript, formularios, analítica ni cookies propias. El hosting puede registrar accesos. No se garantiza seguridad absoluta.</p></footer>
+</body>
+</html>
