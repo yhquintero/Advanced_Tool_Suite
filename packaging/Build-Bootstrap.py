@@ -17,8 +17,16 @@ ROOT_FILES = (
     'CHANGELOG.md', 'LICENSE', 'LICENSE.es.md', 'SECURITY.md', 'CONTRIBUTING.md',
     'THIRD_PARTY_NOTICES.md', 'VERSION.json', 'install.ps1', 'uninstall.ps1',
 )
-TREES = ('Tool', 'Assets', 'Plugins', 'docs', 'packaging', 'tests', '.github', 'site')
-EXTENSIONS = {'.ps1', '.bat', '.cmd', '.md', '.json', '.xml', '.wxs', '.py', '.svg', '.ico', '.yml', '.yaml', '.txt', '.html', '.css'}
+TREES = ('Tool', 'Assets', 'Plugins', 'docs', 'packaging', 'tests', '.github', 'site', 'Cobros')
+EXTENSIONS = {'.ps1', '.bat', '.cmd', '.md', '.json', '.xml', '.wxs', '.py', '.svg', '.ico', '.yml', '.yaml', '.txt', '.html', '.css', '.mjs', '.xls', '.xlsx'}
+# Hojas de cálculo: solo los ejemplos ficticios del Analizador de cobros. Un Excel de clientes
+# dejado junto al analizador no debe acabar en el autoextraíble versionado (repositorio público).
+SPREADSHEETS = {'.xls', '.xlsx'}
+SPREADSHEET_ALLOWLIST = re.compile(r'Cobros/ejemplo/cobros-ejemplo\.xls|tests/fixtures/cobros-[a-z0-9-]+\.xlsx?')
+
+
+def allowed_spreadsheet(name):
+    return pathlib.PurePosixPath(name).suffix.lower() not in SPREADSHEETS or bool(SPREADSHEET_ALLOWLIST.fullmatch(name))
 EXCLUDED = {'__pycache__', '.git', '.venv', '.pytest_cache', 'artifacts', 'Releases', 'node_modules'}
 
 
@@ -30,7 +38,7 @@ def source_files():
     seen = set()
     for path in sorted(set(paths)):
         relative = path.relative_to(ROOT)
-        if EXCLUDED.intersection(relative.parts):
+        if EXCLUDED.intersection(relative.parts) or not allowed_spreadsheet(relative.as_posix()):
             continue
         if any(parent.is_symlink() for parent in (path, *path.parents)):
             raise ValueError(f'No se empaquetan enlaces: {relative}')
