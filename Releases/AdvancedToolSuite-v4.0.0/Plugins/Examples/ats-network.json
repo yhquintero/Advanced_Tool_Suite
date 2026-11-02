@@ -1,8 +1,0 @@
-{
-  "schemaVersion": 1,
-  "id": "ats-network",
-  "name": "Configuracion de red local",
-  "version": "1.0.0",
-  "description": "Consulta la configuracion IP local sin cambiar adaptadores ni restablecer conexiones.",
-  "toolId": 27
-}

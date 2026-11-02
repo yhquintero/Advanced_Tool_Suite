@@ -1,8 +1,0 @@
-{
-  "schemaVersion": 1,
-  "id": "ats-memory",
-  "name": "Diagnostico de memoria",
-  "version": "1.0.0",
-  "description": "Muestra RAM disponible y los procesos que mas memoria consumen. No cierra aplicaciones.",
-  "toolId": 14
-}
